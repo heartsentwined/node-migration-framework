@@ -1,0 +1,23 @@
+{
+  "name": "migration-framework",
+  "version": "0.0.1",
+  "description": "A barebones, generic migration framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heartsentwined/node-migration-framework.git"
+  },
+  "keywords": [
+    "migrate",
+    "migration"
+  ],
+  "author": "Andy Li <andy@coglab.biz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heartsentwined/node-migration-framework/issues"
+  },
+  "homepage": "https://github.com/heartsentwined/node-migration-framework"
+}
