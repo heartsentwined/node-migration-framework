@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/heartsentwined/node-migration-framework/issues"
   },
-  "homepage": "https://github.com/heartsentwined/node-migration-framework"
+  "homepage": "https://github.com/heartsentwined/node-migration-framework",
+  "dependencies": {
+    "coffee-script": "^1.9.3"
+  }
 }
