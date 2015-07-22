@@ -9,7 +9,7 @@ _ = require 'lodash'
 
 # https://github.com/lorenwest/node-config/wiki/Sub-Module-Configuration
 config.util.setModuleDefaults 'migrationFramework',
-  migrationDir: __dirname
+  migrationDir: path.join __dirname, 'migrations'
   migrationFilename: '.migrate'
 
 migrationDir = config.get 'migrationFramework.migrationDir'
