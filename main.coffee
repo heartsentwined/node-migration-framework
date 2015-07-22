@@ -2,9 +2,11 @@
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'y'
 config = require 'config'
 
+async = require 'async'
 path = require 'path'
 glob = require 'glob'
 fs = require 'fs'
+mkdirp = require 'mkdirp'
 _ = require 'lodash'
 
 # https://github.com/lorenwest/node-config/wiki/Sub-Module-Configuration
@@ -24,7 +26,9 @@ getLast = (cb) ->
     cb err
 
 setLast = (last, cb) ->
-  fs.writeFile migrationFile, (last || ''), cb
+  mkdirp migrationDir, (err) ->
+    return cb err if err
+    fs.writeFile migrationFile, (last || ''), cb
 
 migrate = (direction, cb, finalCb) ->
   _this = this
@@ -89,9 +93,12 @@ create = (name, cb) ->
   filename = "#{Date.now()}-#{name}.coffee"
   pathname = path.join migrationDir, filename
   template = path.join __dirname, 'migration-template.coffee'
-  fs.readFile template, 'utf8', (err, data) ->
-    return cb err if err
-    fs.writeFile pathname, data, (err) -> cb err, filename
+  async.waterfall [
+    (cb) -> mkdirp migrationDir, cb
+    (dir, cb) -> fs.readFile template, 'utf8', cb
+    (data, cb) -> fs.writeFile pathname, data, cb
+  ], (err) ->
+    cb err, filename
 
 module.exports =
   up: (cb, finalCb) -> migrate.call this, 'up', cb, finalCb
