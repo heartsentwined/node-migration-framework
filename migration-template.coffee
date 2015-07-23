@@ -1,3 +1,3 @@
 module.exports =
-  up: (cb) ->
-  down: (cb) ->
+  up: (cb) -> cb()
+  down: (cb) -> cb()
