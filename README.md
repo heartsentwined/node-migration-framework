@@ -27,3 +27,5 @@ module.exports = function (grunt) {
   require('migration-framework/Gruntfile')(grunt);
 };
 ```
+
+Add the migration file to `.gitignore`.
