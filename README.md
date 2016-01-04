@@ -6,7 +6,6 @@ A barebones, generic migration framework
 
 ```sh
 $ npm i --save migration-framework
-$ npm i --save grunt-prompt # grunt cannot do recursion
 ```
 
 `config/default.json`:
