@@ -1,6 +1,6 @@
 {
   "name": "migration-framework",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A barebones, generic migration framework",
   "main": "index.js",
   "scripts": {
