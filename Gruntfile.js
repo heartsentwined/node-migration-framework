@@ -60,7 +60,7 @@ module.exports = function (grunt) {
     })
   })
 
-  grunt.registerTask('migrate:create', ['prompt:create', 'migrate:create:main'])
+  grunt.registerTask('migrate:create', ['prompt:migrate', 'migrate:create:main'])
 
   // rails style alias
   grunt.registerTask('migrate', ['migrate:up'])
