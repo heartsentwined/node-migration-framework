@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('migrate:up', 'Migrate database up', function() {
     var done = this.async()
-    var logger function (eachMigration) { grunt.log.ok('Migration up ' + eachMigration) }
+    var logger = function (eachMigration) { grunt.log.ok('Migration up ' + eachMigration) }
     migration.up(logger, function (err) {
       if (err) {
         grunt.log.error(err.message)
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('migrate:down', 'Migrate database down', function() {
     var done = this.async()
-    var logger function (eachMigration) { grunt.log.ok('Migration down ' + eachMigration) }
+    var logger = function (eachMigration) { grunt.log.ok('Migration down ' + eachMigration) }
     migration.down(logger, function (err) {
       if (err) {
         grunt.log.error(err.message)
