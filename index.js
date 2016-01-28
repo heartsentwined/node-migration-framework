@@ -58,6 +58,8 @@ function migrate (direction, cb, finalCb) {
       if (last === -1) { return finalCb() }
 
       // upward migration should start *after* last migration
+      if (direction === 'up') { index++ }
+
       runMigration.call(_this, files.slice(index), 0, direction, cb, finalCb)
     })
   })
